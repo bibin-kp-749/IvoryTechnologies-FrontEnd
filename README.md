@@ -1,4 +1,4 @@
-# Location Listing and Popup on Map
+# Location Listing and Popup on Map🌎
 
 This project allows users to add locations on  Map using Longitude &l atitude and display additional information in a popup when a location marker is clicked.   
 The project utilizes HTML5, CSS, JavaScript, and the Fetch API to manage and display location data, and utilized the UNPKG CDN service for visualization.
