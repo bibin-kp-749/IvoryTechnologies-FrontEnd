@@ -21,7 +21,7 @@ The backend is built with .NET Core API, using SQL Server as the database, and D
 - **.NETCore Web API**: Serves as the backend API for handling requests and processing location data.
 - **SQL Server**: The relational database used to store location data;
 - **Dapper**: A micro ORM used for efficient and lightweight database interactions with SQL Server;
-- **CDN**: Uses Universal Package CDN for virtual representation Map.
+- **CDN**: Uses Universal Package CDN for virtual representation of Map.
 
 
 
