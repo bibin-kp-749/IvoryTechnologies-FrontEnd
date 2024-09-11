@@ -1,50 +1,22 @@
-function addLocation() {
-    const name = document.getElementById('name').value;
-    const address = document.getElementById('address').value;
-    const phone = document.getElementById('phone').value;
-    const latitude = parseFloat(document.getElementById('latitude').value);
-    const longitude = parseFloat(document.getElementById('longitude').value);
-    const company = document.getElementById('company').value;
+// Initialize the map centered at a default location
+const map = L.map('map').setView([37.7749, -122.4194], 10);
 
-    fetch('https://localhost:7076/api/Location', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name,
-            address,
-            phone,
-            latitude,
-            longitude,
-            company
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            document.getElementById('add-message').innerText = 'Added successfully!';
-        } else {
-            document.getElementById('add-message').innerText = 'Failed to Add.';
-        }
+// Add a tile layer with OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Fetching location data from the web Api
+fetch('https://localhost:7076/api/Location')
+    .then(response => response.json())
+    .then(data => {
+        // adding Marks to the Map     
+        data.forEach(location => {
+            const marker = L.marker([location.latitude, location.longitude]).addTo(map);
+            marker.bindPopup(`<b>${location.name}</b><br>${location.address}<br>Phone: ${location.phone}<br>Company:${location.company}`);
+        });
     })
     .catch(error => {
-        document.getElementById('add-message').innerText = 'Error: ' + error.message;
+        //catch the error is occured
+        console.error('Error fetching location data:', error);
     });
-}
-
-function deleteLocation() {
-    const company = document.getElementById('delete-id').value;
-    fetch(`https://localhost:7076/api/Location?Name=${company}`, {
-        method: 'DELETE'
-    })
-    .then(response => {
-        if (response.ok) {
-            document.getElementById('delete-message').innerText = 'Deleted successfully!';
-        } else {
-            document.getElementById('delete-message').innerText = 'Failed to Delete.';
-        }
-    })
-    .catch(error => {
-        document.getElementById('delete-message').innerText = 'Error: ' + error.message;
-    });
-}

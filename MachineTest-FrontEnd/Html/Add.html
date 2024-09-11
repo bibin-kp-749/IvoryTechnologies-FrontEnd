@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Manager</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body id="index-main">
+    <div class="container">
+        <h1>Location Manager</h1>
+        <!-- For adding the data to the Server -->
+        <div>
+            <h2>Add Location</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" />
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" />
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input title="Required 10 Numbers" type="text" maxlength="10" minlength="10" id="phone" required/>
+            </div>
+            <div class="form-group">
+                <label for="latitude">Latitude:</label>
+                <input type="number" id="latitude" step="any" />
+            </div>
+            <div class="form-group">
+                <label for="longitude">Longitude:</label>
+                <input type="number" id="longitude" step="any" />
+            </div>
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <input type="text" id="company" />
+            </div>
+            <button onclick="addLocation()">Add Location</button>
+            <div id="add-message" class="message"></div>
+        </div>
+        <!-- For deleting existing data Using User Name -->
+
+    </div>
+    <script src="../Js/add.js"></script>
+</body>
+</html>

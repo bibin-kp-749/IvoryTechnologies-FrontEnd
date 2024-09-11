@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Location</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <!-- Upadte an Existing data using Unique phone Number -->
+        <div class="card">
+            <h2>Edit Location</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Latitude:</label>
+                    <input type="tel" id="latitude" name="latitude">
+                </div>
+                <div class="form-group">
+                    <label for="name">Longitude:</label>
+                    <input type="tel" id="longitude" name="longitude">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Save Changes</button>
+                </div>
+                <div id="error" class="error"></div>
+                <div id="success" class="success"></div>
+            </form>
+        </div>
+        <div></div>
+        <!-- Delete Location Using the Unique Phone Number -->
+            <h2>Delete Location</h2>
+            <div class="form-group">
+                <label for="delete-id">Enter The phone</label>
+                <input type="text" id="delete-id" />
+            </div>
+            <button class="delete" onclick="deleteLocation()">Delete Location</button>
+            <div id="delete-message" class="message"></div>
+        </div>
+    </div>
+    <script src="../Js/alter.js"></script>
+</body>
+</html>
